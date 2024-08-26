@@ -1,5 +1,6 @@
 """Здесь надо написать тесты с использованием pytest для модуля item."""
 from src.item import Item
+from src.keyboard import Keyboard
 from src.phone import Phone
 
 
@@ -64,3 +65,12 @@ def test_add_method():
     phone1 = Phone("iPhone 14", 120_000, 5, 2)
     assert item1 + phone1 == 25
     assert phone1 + phone1 == 10
+
+def test_change_lang():
+    kb = Keyboard('Dark Project KD87A', 9600, 5)
+
+    assert str(kb.language) == "EN"
+    kb.change_lang()
+    assert str(kb.language) == "RU"
+    kb.change_lang()
+    assert str(kb.language) == "EN"
